@@ -10,21 +10,24 @@
 </head>
 <body>
     <div class="container">
+        <h1>Simple Calculator</h1>
+        <h2>Project JSE6</h2>
         <div class="calculator">
             <div class="calculator-screen">
-                <input type="text" name="form-result" id="result" value="0">
+                <p class="result" id="result">0</p>
+                <p class="operator" id="operator"></p>
             </div>
             <div class="buttons">
                 <div class="row-one row">
-                    <div class="btn ac"><a href="#" class="all-clear">AC</a></div>
-                    <div class="btn percent"><a href="#" lass="percent">%</a></div>
-                    <div class="btn divide"><a href="#" class="divide">÷</a></div>
+                    <div class="btn ac"><a href="#">AC</a></div>
+                    <div class="btn percent"><a href="#">%</a></div>
+                    <div class="btn divide"><a href="#">÷</a></div>
                 </div>
                 <div class="row-two row">
-                    <div class="btn seven"><a href="#">7</a></div>
+                    <div class="btn seven"><a href="#" onclick="getElementById('result').innerHTML=7">7</a></div>
                     <div class="btn eight"><a href="#">8</a></div>
                     <div class="btn nine"><a href="#">9</a></div>
-                    <div class="btn times"><a href="#">*</a></div>
+                    <div class="btn times"><a href="#" onclick="getElementById('operator').innerHTML='×'">×</a></div>
                 </div>
                 <div class="row-three row">
                     <div class="btn four"><a href="#">4</a></div>

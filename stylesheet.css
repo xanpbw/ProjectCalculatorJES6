@@ -4,10 +4,17 @@
 body {
     margin: 0;
     font-family: "Arial, Helvetica, sans-serif";
+    background-color: rgb(44, 44, 44);
 }
 a {
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
+}
+.container h1,h2{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    line-height: 15px;
 }
 .buttons{
     max-width: 240px;
@@ -15,15 +22,27 @@ a {
 }
 .calculator{
     text-align: center;
-    margin: 5% auto;
+    margin: 2% auto;
 }
-.calculator-screen input{
-    width: 240px;
-    height: 50px;
+.calculator-screen{
+    max-width: 240px;
+    background-color: rgb(17, 17, 17);
+    margin: 0 auto;
+    padding: 1px 10px;
+}
+
+.calculator-screen p{
+    color: white;
     text-align: right;
-    font-size: 24px;
-    padding: 0 10px;
+    font-size: 28px;
+    width: 100%;
 }
+
+.calculator-screen{
+    font-size: 14px;
+    text-align: left;
+}
+
 .row{
     width: 100%;
 }
@@ -35,18 +54,34 @@ a {
 .btn a{
     color: white;
     display: inline-block;
-    padding: 23px;
-    background-color: rgb(34, 34, 34);
+    padding: 20px;
+    background-color: rgb(80, 80, 80);
+    opacity: 1;
     font-size: 20px;
     width: 100%;
     text-align: center;
 }
 .btn a:hover{
-    color: red;
+    opacity: 0.8;
 }
 .btn a:active{
-    color: blue;
+    opacity: 0.6;
 }
 .ac,.zero{
     width: 50%;
+}
+.divide a,.times a,.minus a,.plus a,.equal a{
+    background-color: rgb(0, 12, 182);
+}
+.times a{
+    background-color: rgb(0, 155, 182);
+}
+.minus a{
+    background-color: rgb(177, 0, 0);
+}
+.plus a{
+    background-color: rgb(0, 185, 15);
+}
+.equal a{
+    background-color: rgb(192, 148, 2);
 }
