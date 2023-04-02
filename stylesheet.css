@@ -29,6 +29,7 @@ a {
     background-color: rgb(17, 17, 17);
     margin: 0 auto;
     padding: 1px 10px;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .calculator-screen p{
@@ -37,51 +38,64 @@ a {
     font-size: 28px;
     width: 100%;
 }
+.result{
+    color: white;
+    text-align: right;
+    font-size: 28px;
+    width: 100%;
+    background-color: rgb(17, 17, 17);
+    border: none;
+    padding: 20px 10px;
+}
 
 .calculator-screen{
     font-size: 14px;
-    text-align: left;
 }
-
+.operator{
+    color: white;
+    width: 100%;
+    text-align: right;
+    background-color: rgb(17, 17, 17);
+    border: none;
+    padding: 10px 10px;
+}
+.clear{
+    clear: left;
+}
 .row{
     width: 100%;
 }
-.btn{
-    float: left;
-    padding: 1px;
-    width: 25%;
-}
-.btn a{
+.btn,.btn-op, .ac, .percent{
     color: white;
-    display: inline-block;
-    padding: 20px;
     background-color: rgb(80, 80, 80);
     opacity: 1;
     font-size: 20px;
-    width: 100%;
-    text-align: center;
+    float: left;
+    padding: 20px;
+    width: 25%;
+    border: 2px solid rgb(44, 44, 44);
 }
-.btn a:hover{
+.btn:hover,.btn-op:hover, .ac:hover, .percent:hover{
     opacity: 0.8;
 }
-.btn a:active{
+.btn:active,.btn-op:active,.ac:active,.percent:active{
     opacity: 0.6;
 }
 .ac,.zero{
     width: 50%;
 }
-.divide a,.times a,.minus a,.plus a,.equal a{
+.divide{
     background-color: rgb(0, 12, 182);
 }
-.times a{
+.times{
     background-color: rgb(0, 155, 182);
 }
-.minus a{
+.minus{
     background-color: rgb(177, 0, 0);
 }
-.plus a{
+.plus{
     background-color: rgb(0, 185, 15);
 }
-.equal a{
+.equal{
     background-color: rgb(192, 148, 2);
 }

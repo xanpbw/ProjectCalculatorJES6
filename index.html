@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheet.css">
-    <link rel="stylesheet" href="maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <title>Kalkulator dengan JES6</title>
 </head>
 <body>
@@ -14,40 +13,42 @@
         <h2>Project JES6</h2>
         <div class="calculator">
             <div class="calculator-screen">
-                <p class="result" id="result">0</p>
-                <p class="operator" id="operator"></p>
+                <input class="operator" id="operator" disabled/>
+                <input type="text" name="result" id="result" class="result" value="0" disabled />
+                <div class="clear"></div>
             </div>
             <div class="buttons">
                 <div class="row-one row">
-                    <div class="btn ac"><a href="#">AC</a></div>
-                    <div class="btn percent"><a href="#">%</a></div>
-                    <div class="btn divide"><a href="#">÷</a></div>
+                    <button class="ac" value="AC" onClick="num(this.value)">AC</button>
+                    <button class="percent" value="%" onClick="num(this.value)">%</button>
+                    <button class="btn-op divide" value="/" onClick="num(this.value)">÷</button>
                 </div>
                 <div class="row-two row">
-                    <div class="btn seven"><a href="#" onclick="getElementById('result').innerHTML=7">7</a></div>
-                    <div class="btn eight"><a href="#" onclick="getElementById('result').innerHTML=8">8</a></div>
-                    <div class="btn nine"><a href="#">9</a></div>
-                    <div class="btn times"><a href="#" onclick="getElementById('operator').innerHTML='×'">×</a></div>
+                    <button class="btn" value="7" onClick="num(this.value)">7</button>
+                    <button class="btn" value="8" onClick="num(this.value)">8</button>
+                    <button class="btn" value="9" onClick="num(this.value)">9</button>
+                    <button class="btn-op times" value="x" onClick="num(this.value)">×</button>
                 </div>
                 <div class="row-three row">
-                    <div class="btn four"><a href="#">4</a></div>
-                    <div class="btn five"><a href="#">5</a></div>
-                    <div class="btn six"><a href="#">6</a></div>
-                    <div class="btn minus"><a href="#">-</a></div>
+                    <button class="btn" value="4" onClick="num(this.value)">4</button>
+                    <button class="btn" value="5" onClick="num(this.value)">5</button>
+                    <button class="btn" value="6" onClick="num(this.value)">6</button>
+                    <button class="btn-op minus" value="-" onClick="num(this.value)">-</button>
                 </div>
                 <div class="row-four row">
-                    <div class="btn one"><a href="#">1</a></div>
-                    <div class="btn two"><a href="#">2</a></div>
-                    <div class="btn three"><a href="#">3</a></div>
-                    <div class="btn plus"><a href="#">+</a></div>
+                    <button class="btn" value="1" onClick="num(this.value)">1</button>
+                    <button class="btn" value="2" onClick="num(this.value)">2</button>
+                    <button class="btn" value="3" onClick="num(this.value)">3</button>
+                    <button class="btn-op plus" value="+" onClick="num(this.value)">+</button>
                 </div>
                 <div class="row-five row">
-                    <div class="btn zero"><a href="#">0</a></div>
-                    <div class="btn point"><a href="#">.</a></div>
-                    <div class="btn equal"><a href="#">=</a></div>
+                    <button class="btn zero" value="0" onClick="num(this.value)">0</button>
+                    <button class="btn-op" value="." onClick="num(this.value)">.</button>
+                    <button class="btn-op equal" value="=" onClick="num(this.value)">=</button>
                 </div>
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
