@@ -8,44 +8,36 @@
     <title>Kalkulator dengan JES6</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Simple Calculator</h1>
-        <h2>Project JES6</h2>
-        <div class="calculator">
-            <div class="calculator-screen">
-                <input class="operator" id="operator" disabled/>
-                <input type="text" name="result" id="result" class="result" value="0" disabled />
-                <div class="clear"></div>
+    <div class="calculator">
+        <input type="text" class="calculator-screen" value="0" disabled/>
+        <div class="calculator-keys">
+            <div class="row">
+                <button class="all-clear">AC</button>
+                <button class="percentage">%</button>
+                <button class="operator" value="/">&divide;</button>
             </div>
-            <div class="buttons">
-                <div class="row-one row">
-                    <button class="ac" value="AC" onClick="num(this.value)">AC</button>
-                    <button class="percent" value="%" onClick="num(this.value)">%</button>
-                    <button class="btn-op divide" value="/" onClick="num(this.value)">÷</button>
-                </div>
-                <div class="row-two row">
-                    <button class="btn" value="7" onClick="num(this.value)">7</button>
-                    <button class="btn" value="8" onClick="num(this.value)">8</button>
-                    <button class="btn" value="9" onClick="num(this.value)">9</button>
-                    <button class="btn-op times" value="x" onClick="num(this.value)">×</button>
-                </div>
-                <div class="row-three row">
-                    <button class="btn" value="4" onClick="num(this.value)">4</button>
-                    <button class="btn" value="5" onClick="num(this.value)">5</button>
-                    <button class="btn" value="6" onClick="num(this.value)">6</button>
-                    <button class="btn-op minus" value="-" onClick="num(this.value)">-</button>
-                </div>
-                <div class="row-four row">
-                    <button class="btn" value="1" onClick="num(this.value)">1</button>
-                    <button class="btn" value="2" onClick="num(this.value)">2</button>
-                    <button class="btn" value="3" onClick="num(this.value)">3</button>
-                    <button class="btn-op plus" value="+" onClick="num(this.value)">+</button>
-                </div>
-                <div class="row-five row">
-                    <button class="btn zero" value="0" onClick="num(this.value)">0</button>
-                    <button class="btn-op" value="." onClick="num(this.value)">.</button>
-                    <button class="btn-op equal" value="=" onClick="num(this.value)">=</button>
-                </div>
+            <div class="row">
+                <button class="number" value="7">7</button>
+                <button class="number" value="8">8</button>
+                <button class="number" value="9">9</button>
+                <button class="operator" value="*">&times;</button>
+            </div>
+            <div class="row">
+                <button class="number" value="4">4</button>
+                <button class="number" value="5">5</button>
+                <button class="number" value="6">6</button>
+                <button class="operator" value="-">-</button>
+            </div>
+            <div class="row">
+                <button class="number" value="1">1</button>
+                <button class="number" value="2">2</button>
+                <button class="number" value="3">3</button>
+                <button class="operator" value="+">+</button>
+            </div>
+            <div class="row">
+                <button class="number zero-btn" value="0">0</button>
+                <button class="decimal" value=".">.</button>
+                <button class="equal-sign">=</button>
             </div>
         </div>
     </div>

@@ -1,144 +1,105 @@
-/*const numbers = document.querySelectorAll(".btn");
-//console.log(numbers);
-
-numbers.forEach((number) => {
-    console.log(number);
-});*/
-let input="";
-let operator= "";
-let eqz=false;
-
-const calc = {n1:0,n2:0,res:0};//object
-
-function plus(n1,n2){
-    return parseFloat(n1)+parseFloat(n2);
+const numbers = document.querySelectorAll(".number");
+numbers.forEach((number)=>{
+    number.addEventListener("click",(event)=>{
+        console.log(event.target.value)
+    })
+});
+const calculatorScreen = document.querySelector('.calculator-screen');
+const updateScreen = (number)=>{
+    calculatorScreen.value=number
 }
-function minus(n1,n2){
-    return parseFloat(n1)-parseFloat(n2);
-}
-function times(n1,n2){
-    return parseFloat(n1)*parseFloat(n2);
-}
-function divide(n1,n2){
-    return parseFloat(n1)/parseFloat(n2);
-}
-function percent(n1,n2){
-    return parseFloat(n1)*(parseFloat(n2)/100);
-}
-const num = (value) => {
-    switch (value){
-        case "+":
-            if (operator){
-                if (input){
-                    calc.n1=calc.res;
-                }
-            }
-            input="";
-            eqz=false;
-            operator = value;
-            document.getElementById("operator").value = operator;
-            break;
-        case "-":
-            if (operator){
-                if (input){
-                    calc.n1=calc.res;
-                }
-            }
-            input="";
-            eqz=false;
-            operator = value;
-            document.getElementById("operator").value = operator;
-            break;
-        case "/":
-            if (operator){
-                if (input){
-                    calc.n1=calc.res;
-                }
-            }
-            input="";
-            eqz=false;
-            operator = value;
-            document.getElementById("operator").value = operator;
-            break;
-        case "x":
-            if (operator){
-                if (input){
-                    calc.n1=calc.res;
-                }
-            }
-            input="";
-            eqz=false;
-            operator = value;
-            document.getElementById("operator").value = operator;
-            break;
-        case "%":
-            if (operator){
-                if (input){
-                    calc.n1=calc.res;
-                }
-            }
-            input="";
-            eqz=false;
-            operator = value;
-            document.getElementById("operator").value = operator;
-            break;
-        case ".":
-            input=input+".";
-            break;
-        case "=":
-            calc.n1=calc.res;
-            document.getElementById("operator").value = value;
-            document.getElementById("result").value = calc.res;
-            console.log(calc.res);
-            eqz=true;
-            break;
-        case "AC":
-            calc.n1=0;
-            calc.n2=0;
-            calc.res=0;
-            input="";
-            operator= "";
-            eqz=false;
-            document.getElementById("operator").value = "All Clear";
-            document.getElementById("result").value = calc.res;
-            break;
-        default:
-            if(eqz){
-                calc.n1=0;
-                calc.n2=0;
-                calc.res=0;
-                input="";
-                operator= "";
-                eqz=false;
-            }
-            input = input+value;
-            calc.n2=parseFloat(input);
-            document.getElementById("result").value = input;
-            if (operator){
-                switch(operator){
-                    case "+":
-                        calc.res=plus(calc.n1,calc.n2);
-                        break;
-                    case "-":
-                        calc.res=minus(calc.n1,calc.n2);
-                        break;
-                    case "/":
-                        calc.res=divide(calc.n1,calc.n2);
-                        break;
-                    case "x":
-                        calc.res=times(calc.n1,calc.n2);
-                        break;
-                    case "%":
-                        calc.res=percent(calc.n1,calc.n2);
-                        break;
-                    default:
-                        console.log(savednumber);
-                        break;
-                }
-            }else{
-                calc.n1=parseFloat(input);
-            }
-            break;
+numbers.forEach((number)=>{
+    number.addEventListener("click", (event)=>{
+        updateScreen(event.target.value)
+    })
+})
+let prevNumber=''
+let calculationOperator=''
+let currentNumber ='0'
+const inputNumber = (number)=>{
+    if (currentNumber === "0"){
+        currentNumber=number
+    }else{
+        currentNumber+=number
     }
-    
-};
+}
+numbers.forEach((number)=>{
+    number.addEventListener("click", (event)=>{
+        inputNumber(event.target.value)
+        updateScreen(currentNumber)
+    })
+})
+const operators = document.querySelectorAll(".operator")
+operators.forEach((operator)=>{
+    operator.addEventListener("click", (event)=>{
+        console.log(event.target.value)
+    })
+})
+const inputOperator = (operator)=>{
+    if (calculationOperator===''){
+        prevNumber=currentNumber
+    }
+    calculationOperator=operator
+    currentNumber='0'
+}
+operators.forEach((operator)=>{
+    operator.addEventListener("click", (event)=>{
+        inputOperator(event.target.value)
+    })
+})
+const equalSign = document.querySelector(".equal-sign")
+equalSign.addEventListener("click", ()=>{
+    console.log("equal button is pressed")
+})
+const calculate = ()=>{
+    let result=''
+    switch(calculationOperator){
+        case "+":
+            result=parseFloat(prevNumber)+parseFloat(currentNumber)
+            break
+        case "-":
+            result=parseFloat(prevNumber)-parseFloat(currentNumber)
+            break
+        case "*":
+            result=parseFloat(prevNumber)*parseFloat(currentNumber)
+            break
+        case "/":
+            result=parseFloat(prevNumber)/parseFloat(currentNumber)
+            break
+        default:
+            break
+    }
+    currentNumber=result
+    calculationOperator=''
+}
+equalSign.addEventListener("click", ()=>{
+    calculate()
+    updateScreen(currentNumber)
+})
+const clearBtn = document.querySelector(".all-clear")
+clearBtn.addEventListener("click", ()=>{
+    console.log('ac button is pressed')
+})
+const clearAll = () =>{
+    prevNumber=''
+    calculationOperator=''
+    currentNumber='0'
+}
+clearBtn.addEventListener("click", ()=>{
+    clearAll()
+    updateScreen(currentNumber)
+})
+const decimal = document.querySelector(".decimal")
+decimal.addEventListener("click", (event)=>{
+    console.log(event.target.value)
+})
+const inputDecimal=(dot)=>{
+    if(currentNumber.includes(".")){
+        return
+    }
+    currentNumber += dot
+}
+decimal.addEventListener("click", (event)=>{
+    inputDecimal(event.target.value)
+    updateScreen(currentNumber)
+})
