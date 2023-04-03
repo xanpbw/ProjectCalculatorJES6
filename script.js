@@ -29,7 +29,9 @@ const num = (value) => {
     switch (value){
         case "+":
             if (operator){
-                calc.n1=calc.res;
+                if (input){
+                    calc.n1=calc.res;
+                }
             }
             input="";
             eqz=false;
@@ -38,7 +40,9 @@ const num = (value) => {
             break;
         case "-":
             if (operator){
-                calc.n1=calc.res;
+                if (input){
+                    calc.n1=calc.res;
+                }
             }
             input="";
             eqz=false;
@@ -47,7 +51,9 @@ const num = (value) => {
             break;
         case "/":
             if (operator){
-                calc.n1=calc.res;
+                if (input){
+                    calc.n1=calc.res;
+                }
             }
             input="";
             eqz=false;
@@ -56,7 +62,9 @@ const num = (value) => {
             break;
         case "x":
             if (operator){
-                calc.n1=calc.res;
+                if (input){
+                    calc.n1=calc.res;
+                }
             }
             input="";
             eqz=false;
@@ -65,7 +73,9 @@ const num = (value) => {
             break;
         case "%":
             if (operator){
-                calc.n1=calc.res;
+                if (input){
+                    calc.n1=calc.res;
+                }
             }
             input="";
             eqz=false;
