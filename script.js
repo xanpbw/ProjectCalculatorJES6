@@ -16,6 +16,15 @@ function plus(n1,n2){
 function minus(n1,n2){
     return parseFloat(n1)-parseFloat(n2);
 }
+function times(n1,n2){
+    return parseFloat(n1)*parseFloat(n2);
+}
+function divide(n1,n2){
+    return parseFloat(n1)/parseFloat(n2);
+}
+function percent(n1,n2){
+    return parseFloat(n1)*(parseFloat(n2)/100);
+}
 const num = (value) => {
     switch (value){
         case "+":
@@ -25,6 +34,7 @@ const num = (value) => {
             input="";
             eqz=false;
             operator = value;
+            document.getElementById("operator").value = operator;
             break;
         case "-":
             if (operator){
@@ -33,17 +43,42 @@ const num = (value) => {
             input="";
             eqz=false;
             operator = value;
+            document.getElementById("operator").value = operator;
             break;
         case "/":
+            if (operator){
+                calc.n1=calc.res;
+            }
+            input="";
+            eqz=false;
             operator = value;
-            divide(input,savednumber);
+            document.getElementById("operator").value = operator;
             break;
         case "x":
+            if (operator){
+                calc.n1=calc.res;
+            }
+            input="";
+            eqz=false;
             operator = value;
-            times(input,savednumber);
+            document.getElementById("operator").value = operator;
+            break;
+        case "%":
+            if (operator){
+                calc.n1=calc.res;
+            }
+            input="";
+            eqz=false;
+            operator = value;
+            document.getElementById("operator").value = operator;
+            break;
+        case ".":
+            input=input+".";
             break;
         case "=":
             calc.n1=calc.res;
+            document.getElementById("operator").value = value;
+            document.getElementById("result").value = calc.res;
             console.log(calc.res);
             eqz=true;
             break;
@@ -54,6 +89,8 @@ const num = (value) => {
             input="";
             operator= "";
             eqz=false;
+            document.getElementById("operator").value = "All Clear";
+            document.getElementById("result").value = calc.res;
             break;
         default:
             if(eqz){
@@ -66,6 +103,7 @@ const num = (value) => {
             }
             input = input+value;
             calc.n2=parseFloat(input);
+            document.getElementById("result").value = input;
             if (operator){
                 switch(operator){
                     case "+":
@@ -75,10 +113,13 @@ const num = (value) => {
                         calc.res=minus(calc.n1,calc.n2);
                         break;
                     case "/":
-                        console.log(savednumber);
+                        calc.res=divide(calc.n1,calc.n2);
                         break;
                     case "x":
-                        console.log(savednumber);
+                        calc.res=times(calc.n1,calc.n2);
+                        break;
+                    case "%":
+                        calc.res=percent(calc.n1,calc.n2);
                         break;
                     default:
                         console.log(savednumber);
@@ -91,74 +132,3 @@ const num = (value) => {
     }
     
 };
-
-
-/*console.log(parseFloat("0"));
-const num = (value) => {
-    switch (value){
-        case "+":
-            operator = value;
-            tempnumber2 = parseFloat(tempnumber)+tempnumber2;
-            tempnumber = "";
-            break;
-        case "-":
-            operator = value;
-            if (tn === 0){
-                tempnumber2 = parseFloat(tempnumber);
-                tn=1;
-            }else{
-                tempnumber2 = (tempnumber2)-parseFloat(tempnumber);
-            }
-            tempnumber = "";
-            break;
-        case "/":
-            operator = value;
-            if (tn === 0){
-                tempnumber2 = parseFloat(tempnumber)/1;
-                tn=1;
-            }else{
-                tempnumber2 = (tempnumber2)/parseFloat(tempnumber);
-            }
-            
-            tempnumber = "";
-            break;
-        case "x":
-            operator = value;
-            if (tn === 0){
-                tempnumber2 = parseFloat(tempnumber)*1;
-                tn=1;
-            }else{
-                tempnumber2 = parseFloat(tempnumber)*(tempnumber2);
-            }
-            tempnumber = "";
-            break;
-        case "=":
-            switch(operator){
-                case "+":
-                    console.log(tempnumber2+parseFloat(tempnumber));
-                    break;
-                case "-":
-                    console.log(tempnumber2-parseFloat(tempnumber));
-                    break;
-                case "/":
-                    console.log(tempnumber2/parseFloat(tempnumber));
-                    break;
-                case "x":
-                    console.log(tempnumber2*parseFloat(tempnumber));
-                    break;
-                default:
-                    break;
-            }
-            
-            break;
-        case "AC":
-            tempnumber="";
-            tempnumber2=0;
-            tn=0;
-            break;
-        default:
-            tempnumber = tempnumber+value;
-            break;
-    }
-    
-};*/
